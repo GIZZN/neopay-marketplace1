@@ -6,8 +6,7 @@ import { useOrders } from '@/lib/hooks/useOrders';
 import { useAppStore } from '@/store';
 
 export default function Home() {
-  const { data: orders } = useOrders();
-  const theme = useAppStore((state) => state.theme);
+
 
   return (
     <div className="home">
