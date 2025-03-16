@@ -5,7 +5,7 @@ import Footer from '@/components/Footer/Footer';
 import { Suspense, useEffect } from 'react';
 import Script from 'next/script';
 
-// Добавляем невидимое изображение с закодированным CSS
+// Добавляем невидимое изображение с закодированным CSS - SOSAL
 const DecorationImage = () => (
   <img 
     src="/decoration.svg"
