@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@/app/global.css";
 import type { PropsWithChildren } from "react";
 import { ImageResponse } from "next/og";
+import { headers } from "next/headers";
 
 export const metadata: Metadata = {
   title: "NeoPay Marketplace - Безопасная торговая площадка для геймеров",
@@ -41,7 +42,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: PropsWithChildren) {
+export default async function RootLayout({ children }: PropsWithChildren) {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
   return (
     <html lang="ru">
       <head>
@@ -49,10 +52,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=5"
         />
-        <meta
+        {/* <meta
           property="og:image"
-          content="/api/og?title=Моя%20страница22424"
-        />
+          content={`/api/screenshot?url=${encodeURIComponent(baseUrl)}`}
+        /> */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
