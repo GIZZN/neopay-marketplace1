@@ -1,13 +1,14 @@
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import type { Metadata, ResolvingMetadata } from "next";
+import { PageProps } from "../../../../.next/types/app/layout";
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 export async function generateMetadata(
-  { params }: { params: { tovar: string } }, // Указываем тип для params
+  { params }: PageProps, // Используем тип PageProps
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // Получаем базовый URL из переменных окружения
-  
+
   const { tovar } = await params;
   // Формируем полный URL для текущей страницы
   const pageUrl = `${baseUrl}/market/${tovar}`;
