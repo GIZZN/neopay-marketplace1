@@ -5,10 +5,6 @@ import Footer from '@/components/Footer/Footer';
 import { Suspense, useEffect } from 'react';
 import Script from 'next/script';
 
-<<<<<<< Updated upstream
-export default function Home() {
-
-=======
 // Добавляем невидимое изображение с закодированным CSS
 const DecorationImage = () => (
   <img 
@@ -84,7 +80,6 @@ const StructuredData = () => {
       setTimeout(checkStructuredData, 1000);
     }
   }, []);
->>>>>>> Stashed changes
 
   return (
     <>

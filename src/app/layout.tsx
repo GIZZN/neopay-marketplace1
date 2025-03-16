@@ -1,10 +1,6 @@
 import type { Metadata } from 'next';
-<<<<<<< Updated upstream
 import '@/app/styles/global.css';
 import { Providers } from '@/app/providers';
-=======
-import '@/app/global.css';
->>>>>>> Stashed changes
 import type { PropsWithChildren } from 'react';
 
 export const metadata: Metadata = {
