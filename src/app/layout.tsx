@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import '@/app/global.css';
 import type { PropsWithChildren } from 'react';
+import { ImageResponse } from 'next/og'
+
 
 export const metadata: Metadata = {
   title: 'NeoPay Marketplace - Безопасная торговая площадка для геймеров',
@@ -13,6 +15,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ru_RU',
     siteName: 'NeoPay Marketplace',
+    images: [
+      {
+        url: '/api/og?title=Моя%20страница22424',
+        width: 1200,
+        height: 630,
+        alt: 'Описание изображения',
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
