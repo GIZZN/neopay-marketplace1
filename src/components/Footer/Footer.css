@@ -1,8 +1,14 @@
 .footer {
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.98);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding: 4rem 0 2rem;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .footer-content {
@@ -13,14 +19,17 @@
 }
 
 .footer-section h4 {
-  color: white;
-  font-size: 1.125rem;
+  color: #E2E8F0;
+  font-size: 1rem;
+  font-weight: 600;
   margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
 }
 
 .footer-section p {
-  color: var(--text-secondary);
+  color: #94A3B8;
   line-height: 1.6;
+  font-size: 0.9rem;
 }
 
 .footer-links {
@@ -30,13 +39,15 @@
 }
 
 .footer-links a {
-  color: var(--text-secondary);
+  color: #94A3B8;
   text-decoration: none;
-  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
 }
 
 .footer-links a:hover {
-  color: white;
+  color: #E2E8F0;
+  transform: translateX(4px);
 }
 
 .social-links {
@@ -48,23 +59,25 @@
   padding: 0.5rem 1rem;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
-  color: var(--text-secondary);
+  color: #94A3B8;
   text-decoration: none;
-  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
 }
 
 .social-link:hover {
   background: rgba(139, 92, 246, 0.1);
-  color: white;
+  color: #8B5CF6;
+  transform: translateY(-2px);
 }
 
 .footer-bottom {
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--text-secondary);
+  color: #94A3B8;
   font-size: 0.875rem;
 }
 
@@ -74,13 +87,13 @@
 }
 
 .footer-legal a {
-  color: var(--text-secondary);
+  color: #94A3B8;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .footer-legal a:hover {
-  color: white;
+  color: #E2E8F0;
 }
 
 @media (max-width: 768px) {

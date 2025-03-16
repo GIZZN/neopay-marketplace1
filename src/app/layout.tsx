@@ -1,52 +1,50 @@
 import type { Metadata } from 'next';
+<<<<<<< Updated upstream
 import '@/app/styles/global.css';
 import { Providers } from '@/app/providers';
+=======
+import '@/app/global.css';
+>>>>>>> Stashed changes
 import type { PropsWithChildren } from 'react';
 
 export const metadata: Metadata = {
-  title: 'NeoPay Marketplace',
-  description: 'Быстрый и SEO-оптимизированный маркетплейс для игровых предметов',
-  keywords: 'маркетплейс, игровые предметы, торговля, NeoPay',
+  title: 'NeoPay Marketplace - Безопасная торговая площадка для геймеров',
+  description: 'NeoPay - современный маркетплейс для безопасной торговли игровыми предметами. CS2, Dota 2, WoW и другие игры. Гарантия безопасных сделок и мгновенные выплаты.',
+  keywords: 'NeoPay, маркетплейс, игровые предметы, CS2, Dota 2, WoW, безопасные сделки, буст аккаунтов',
+  authors: [{ name: 'NeoPay Team' }],
   openGraph: {
-    title: 'NeoPay Marketplace',
-    description: 'Быстрый и SEO-оптимизированный маркетплейс для игровых предметов',
-    url: 'https://neopay.com',
-    siteName: 'NeoPay Marketplace',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-      }
-    ],
-    locale: 'ru_RU',
+    title: 'NeoPay Marketplace - Безопасная торговая площадка для геймеров',
+    description: 'Торговая площадка для геймеров с гарантией безопасных сделок и мгновенными выплатами',
     type: 'website',
+    locale: 'ru_RU',
+    siteName: 'NeoPay Marketplace',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'NeoPay Marketplace',
+    description: 'Безопасная торговая площадка для геймеров',
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  verification: {
-    google: 'ваш-код-верификации',
-    yandex: 'ваш-код-верификации',
   },
   metadataBase: new URL('https://neopay.com'),
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="ru" suppressHydrationWarning>
+    <html lang="ru">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+      </head>
       <body>
-        <Providers>
-          {children}
-        </Providers>
+        {children}
       </body>
     </html>
   );

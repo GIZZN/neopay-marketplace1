@@ -41,7 +41,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>© 2024 NeoPay. Все права защищены</p>
+          <p>© 2025 NeoPay. Все права защищены</p>
           <div className="footer-legal">
             <a href="#">Условия использования</a>
             <a href="#">Политика конфиденциальности</a>
