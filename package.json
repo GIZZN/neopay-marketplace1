@@ -1,35 +1,32 @@
 {
-  "name": "neopay-marketplace",
+  "name": "cal2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.3.4",
-    "@tanstack/react-query": "^5.0.0",
     "@vercel/og": "^0.6.5",
-    "neopay-marketplace": "file:",
-    "next": "^15.0.0",
+    "next": "15.2.2",
+    "next-auth": "^4.24.11",
     "puppeteer": "^24.4.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "recharts": "^2.12.0",
-    "zod": "^3.22.0",
-    "zustand": "^4.5.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^2.15.1",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "^15.0.0",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.2",
+    "tailwindcss": "^4",
     "typescript": "^5"
   }
 }

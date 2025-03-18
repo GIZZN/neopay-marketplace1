@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://neopay.com/sitemap.xml 
