@@ -51,7 +51,7 @@ export const authConfig: AuthOptions = {
   },
   callbacks: {
     // Добавляем accessToken в JWT
-    async jwt({ token, user }: any) {
+    async jwt({ token, user }) {
       if (user) {
         token.accessToken = user.accessToken; // Сохраняем JWT в токене
         token.id = user.id;
@@ -61,13 +61,14 @@ export const authConfig: AuthOptions = {
       return token;
     },
 
-
-    async session({ session, token }: any) {
-      session.accessToken = token.accessToken; // Передаем JWT в сессию
+    async session({ session, token }) {
+      if (token.accessToken) {
+        session.accessToken = token.accessToken; // Передаем JWT в сессию
+      }
       session.user = {
-        id: token.id,
+        id: token.id ?? "",
         email: session.user.email,
-        username: token.username,
+        username: token.username ?? "",
       };
       return session;
     },
@@ -75,3 +76,31 @@ export const authConfig: AuthOptions = {
   secret: process.env.NEXTAUTH_SECRET, // Убедитесь, что секрет задан в .env
   debug: process.env.NODE_ENV === "development", // Включить отладку в development
 };
+
+// Расширяем типы NextAuth
+declare module "next-auth" {
+  interface Session {
+    accessToken?: string;
+    user: {
+      id: string;
+      email: string;
+      username: string;
+    };
+  }
+  
+  interface User {
+    id: string;
+    email: string;
+    username: string;
+    accessToken: string;
+  }
+}
+
+declare module "next-auth/jwt" {
+  interface JWT {
+    accessToken?: string;
+    id?: string;
+    username?: string;
+    email?: string;
+  }
+}

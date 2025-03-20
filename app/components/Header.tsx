@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+
 import { useRouter } from 'next/navigation';
 import './Header.css';
 
@@ -68,8 +69,8 @@ export default function Header() {
           <div className="logo-text">
             <span className="neo-text">Neo</span> Pay
           </div>
-        </Link>
-
+          </Link>
+          
         <form onSubmit={handleSearch} className="search-form">
           <div className="search-container">
             <input
@@ -78,7 +79,6 @@ export default function Header() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="search-input"
-              suppressHydrationWarning
             />
             <SearchIcon />
           </div>

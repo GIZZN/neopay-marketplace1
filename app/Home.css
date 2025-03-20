@@ -1,8 +1,9 @@
-.home {/* Основной контейнер сайта */
+.home {
     min-height: 100vh;
-    background: var(--background-dark);
-    overflow-x: hidden; /* Предотвращаем горизонтальный скролл */
+    background-color: #ffffff;
     position: relative;
+    overflow: hidden;
+    padding-top: 80px;
   }
   
   /* Фоновые элементы */
@@ -50,11 +51,151 @@
     animation: float 12s ease-in-out infinite reverse;
   }
   
-  .main-content {/* Основной контент страницы */
-    padding-top: 5rem; /* Уменьшаем отступ сверху */
-    min-height: calc(100vh - 5rem); /* Учитываем высоту хедера */
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: calc(100vh - 80px); /* Учитываем высоту хедера */
     position: relative;
     z-index: 1;
+  }
+  
+  /* Верхняя секция с логотипом */
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    width: 100%;
+    padding: 4rem 0;
+    background-color: #fff;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    position: relative;
+  }
+  
+  .hero-center-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-center-logo svg {
+    width: 240px; /* Увеличиваем размер логотипа */
+    height: auto;
+  }
+  
+  .tagline-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 2rem;
+  }
+  
+  .tagline {
+    padding: 0.75rem 2rem;
+    background-color: #161616;
+    color: #fff;
+    font-size: 1.125rem;
+    border-radius: 2rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  /* Нижняя секция с описанием */
+  .bottom-section {
+    position: relative;
+    min-height: calc(100vh - 80px);
+    background-color: #161616;
+    z-index: 2;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    overflow: hidden;
+    padding: 4rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .top-line {
+    position: absolute;
+    top: 32px;
+    right: 18%;
+    transform: translateX(-50%);
+    width: 57%;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .bottom-line {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .content-wrapper {
+    position: relative;
+    width: 1700px;
+    height: 808px;
+    transform-origin: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    will-change: transform, gap;
+    margin: 0 auto;
+  }
+  
+  .description-block {
+    position: relative;
+    width: 873px;
+    height: 808px;
+    clip-path: path('M873 594.846C873 604.194 866.524 612.295 857.406 614.354L-2.43187e-05 808V197.167L873 0V594.846Z');
+    background-color: white;
+    z-index: 1;
+    padding: 64px;
+    display: flex;
+    align-items: flex-start;
+    will-change: transform, opacity;
+    opacity: 0;
+  }
+  
+  .accent-block {
+    position: relative;
+    width: 720px;
+    height: 815px;
+    clip-path: path('M691 186.187L3.52859e-05 0V576.813L675.878 758.925C675.878 758.925 680 760 685 760C690 760 691 755 691 750V186.187Z');
+    background-color: #1CCDAA;
+    z-index: 1;
+    will-change: transform, opacity;
+    opacity: 0;
+  }
+  
+  .accent-block svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(-20px 20px 40px rgba(28, 205, 170, 0.2));
+  }
+  
+  .description-content {
+    font-size: 32px;
+    font-weight: 600;
+    color: #161616;
+    max-width: 400px;
+    line-height: 1.2;
+    margin-top: 150px;
+    margin-left: 32px;
+  }
+  
+  .description-content div {
+    margin-bottom: 8px;
   }
   
   .container {/* Контейнер для центрирования и ограничения ширины контента */
@@ -932,4 +1073,36 @@
     background: rgba(239, 68, 68, 0.1);
     border-color: rgba(239, 68, 68, 0.2);
     color: var(--error-color);
+  }
+
+  @media (max-width: 1440px) {
+    .bottom-section {
+      min-height: auto;
+      padding: 2rem 0;
+    }
+    .content-wrapper {
+      transform: scale(0.65);
+      margin: -150px auto;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .content-wrapper {
+      transform: scale(0.45);
+      margin: -220px auto;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .content-wrapper {
+      transform: scale(0.35);
+      margin: -270px auto;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .content-wrapper {
+      transform: scale(0.25);
+      margin: -300px auto;
+    }
   }
