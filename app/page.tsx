@@ -17,40 +17,55 @@ export default function Home() {
     
     const handleResize = () => {
       const width = window.innerWidth;
+      const height = window.innerHeight;
       let scale = 1;
-      let gap = 40;
-      let yOffset = 0;
+      let gap = 120;
+
+      // Вычисляем масштаб на основе меньшей стороны
+      const baseWidth = 1700; // Базовая ширина контента
+      const baseHeight = 808; // Базовая высота контента
       
-      if (width <= 480) {
-        scale = 0.25;
-        gap = 20;
-        yOffset = -300;
-      } else if (width <= 768) {
-        scale = 0.35;
-        gap = 25;
-        yOffset = -270;
-      } else if (width <= 1024) {
-        scale = 0.45;
-        gap = 30;
-        yOffset = -220;
-      } else if (width <= 1440) {
-        scale = 0.65;
-        gap = 35;
-        yOffset = -150;
+      // Если ширина экрана меньше 1440px, применяем масштабирование
+      if (width < 1440) {
+        const widthScale = (width * 0.95) / baseWidth;
+        const heightScale = (height * 0.75) / baseHeight;
+        scale = Math.min(widthScale, heightScale);
+
+        // Ограничиваем минимальный масштаб
+        if (width <= 480) {
+          scale = Math.max(0.25, scale);
+          gap = 60;
+        } else if (width <= 768) {
+          scale = Math.max(0.35, scale);
+          gap = 70;
+        } else if (width <= 1024) {
+          scale = Math.max(0.45, scale);
+          gap = 80;
+        } else {
+          scale = Math.max(0.65, scale);
+          gap = 100;
+        }
       }
       
       gsap.to(contentWrapperRef.current, {
         scale,
         gap: `${gap}px`,
-        y: yOffset,
-        duration: 0.5,
+        duration: 0.3,
         ease: 'power2.out'
       });
 
-      gsap.to([descriptionBlockRef.current, accentBlockRef.current], {
+      // Анимируем появление блоков
+      gsap.to(descriptionBlockRef.current, {
         opacity: 1,
-        duration: 0.5,
-        stagger: 0.1,
+        duration: 0.8,
+        delay: 0.2,
+        ease: 'power2.out'
+      });
+      
+      gsap.to(accentBlockRef.current, {
+        opacity: 1,
+        duration: 0.8,
+        delay: 0.5,
         ease: 'power2.out'
       });
     };
@@ -90,24 +105,25 @@ export default function Home() {
           </div>
           <div className="tagline-container">
             <div className="tagline">маркет плейс интернет услуг</div>
-              </div>
-            </section>
+          </div>
+        </section>
 
         <section className="bottom-section">
-          <div className="top-line"></div>
+          <div className="lines-container">
+            <div className="top-line"></div>
+            <div className="bottom-line"></div>
+          </div>
           <div className="content-wrapper" ref={contentWrapperRef}>
             <div className="description-block" ref={descriptionBlockRef}>
               <div className="description-content">
-                <div>суть сервиса и для кого</div>
-                <div>он с кратким описанием</div>
-                <div>услуг предоставляемых</div>
-                <div>сервисом</div>
+                <div>суть сервиса и для кого он с кратким описанием услуг</div>
               </div>
-                </div>
+            </div>
             <div className="accent-block" ref={accentBlockRef}>
-              </div>
+              {/* Здесь может быть размещен дополнительный контент при необходимости */}
+            </div>
           </div>
-          <div className="bottom-line"></div>
+          <div className="bottom-line last-line"></div>
         </section>
       </div>
       <Footer />
