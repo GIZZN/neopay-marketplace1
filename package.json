@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@vercel/og": "^0.6.5",
+    "cal2": "file:",
     "next": "15.2.2",
     "next-auth": "^4.24.11",
     "puppeteer": "^24.4.0",
