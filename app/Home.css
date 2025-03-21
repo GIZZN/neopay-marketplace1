@@ -1161,7 +1161,7 @@
     }
     
     .bottom-section {
-      min-height: 64vh;
+      min-height: 50vh;
       height: auto;
     }
     
@@ -1209,8 +1209,8 @@
     }
     
     .bottom-section {
-      min-height: 30vh;
-      height: auto;
+      min-height: 38vh;
+      height: 38vh;
     }
     
     .description-content {
