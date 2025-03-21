@@ -33,7 +33,15 @@ export default function Home() {
         viewportHeight / baseHeight * 0.8  // 80% от максимальной высоты
       );
       
-      scale = Math.max(0.2, scale);
+      // Устанавливаем минимальный масштаб для очень маленьких экранов
+      // Можно изменить эти значения для лучшей настройки
+      if (viewportWidth <= 400) {
+        scale = Math.max(0.15, scale); // Для экранов меньше 400px - можно изменить
+      } else if (viewportWidth <= 480) {
+        scale = Math.max(0.17, scale); // Для экранов меньше 480px - можно изменить
+      } else {
+        scale = Math.max(0.2, scale); // Для остальных экранов - можно изменить
+      }
       
       return scale;
     };
@@ -76,6 +84,7 @@ export default function Home() {
     if (watermarkRef.current) {
       gsap.fromTo(watermarkRef.current, 
         { opacity: 0 },
+        
         { 
           opacity: 1, 
           duration: 1.2, 
