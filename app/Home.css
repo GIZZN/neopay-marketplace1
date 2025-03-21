@@ -124,11 +124,11 @@
   .top-line {
     position: absolute;
     border-radius: 100px;
-    width: 1075px;
+    width: 1090px;
     height: 3px;
     background-color: rgb(255, 255, 255);
     top: 40px;
-    left: 98px;
+    left: 93px;
     z-index: 3;
     transition: width 0.3s ease, left 0.3s ease;
   }
@@ -137,7 +137,7 @@
     position: absolute;
     border-radius: 100px;
     bottom: 40px;
-    left: 94px;
+    left: 86px;
     z-index: 3;
     transition: left 0.3s ease;
   }
