@@ -1,0 +1,27 @@
+<svg width="480" height="480" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Фоновый круг (опционально) -->
+  <circle cx="240" cy="240" r="235" stroke="rgba(28, 205, 170, 0.15)" stroke-width="1" fill="none"/>
+  
+  <!-- Текст "НАШИ" -->
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(140, 240, 240)">Н</text>
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(175, 240, 240)">А</text>
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(210, 240, 240)">Ш</text>
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(245, 240, 240)">И</text>
+  
+  <!-- Текст "ПРЕИМУЩЕСТВА" -->
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(290, 240, 240)">П</text>
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(305, 240, 240)">Р</text>
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(320, 240, 240)">Е</text>
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(335, 240, 240)">И</text>
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(350, 240, 240)">М</text>
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(5, 240, 240)">У</text>
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(20, 240, 240)">Щ</text>
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(35, 240, 240)">Е</text>
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(50, 240, 240)">С</text>
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(65, 240, 240)">Т</text>
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(80, 240, 240)">В</text>
+  <text x="240" y="20" fill="#1CCDAA" font-size="24" font-weight="600" font-family="Inter, sans-serif" text-anchor="middle" dominant-baseline="middle" transform="rotate(95, 240, 240)">А</text>
+  
+  <!-- Внутренний круг -->
+  <circle cx="240" cy="240" r="200" stroke="rgba(28, 205, 170, 0.08)" stroke-width="1" fill="none"/>
+</svg> 

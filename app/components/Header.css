@@ -40,10 +40,11 @@
   right: 30px;
   left: auto;
   margin-top: 90px;
-  height: 2px;
+  height: 3px;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   width: 96%;
+  transition: width 0.3s ease;
 }
 
 /* Стили для поисковой формы */
@@ -243,10 +244,20 @@
   .logo-text {
     font-size: 1.25rem;
   }
+
+  .nav-container .line {
+    width: 92%;
+    right: 20px;
+  }
 }
 
 @media (max-width: 480px) {
   .search-form {
     display: none;
+  }
+
+  .nav-container .line {
+    width: 85%;
+    right: 15px;
   }
 } 

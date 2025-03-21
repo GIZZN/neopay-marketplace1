@@ -6,81 +6,166 @@ import "./global.css";
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import DescriptionBlock from './components/DescriptionBlock';
+import AccentBlock from './components/AccentBlock';
+import CircleTextSvg from './components/CircleTextSvg';
 
 export default function Home() {
   const contentWrapperRef = useRef(null);
   const descriptionBlockRef = useRef(null);
   const accentBlockRef = useRef(null);
+  const serviceTextRef = useRef(null);
+  const watermarkRef = useRef(null);
+  const serviceDescriptionRef = useRef(null);
+  const watermarkCircleRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     
-    const handleResize = () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      let scale = 1;
-      let gap = 120;
-
-      // Вычисляем масштаб на основе меньшей стороны
-      const baseWidth = 1700; // Базовая ширина контента
-      const baseHeight = 808; // Базовая высота контента
+    const calculateScale = () => {
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      const baseWidth = 1700;
+      const baseHeight = 808;
       
-      // Если ширина экрана меньше 1440px, применяем масштабирование
-      if (width < 1440) {
-        const widthScale = (width * 0.95) / baseWidth;
-        const heightScale = (height * 0.75) / baseHeight;
-        scale = Math.min(widthScale, heightScale);
+      let scale = Math.min(
+        viewportWidth / baseWidth * 0.85, // 85% от максимальной ширины
+        viewportHeight / baseHeight * 0.8  // 80% от максимальной высоты
+      );
+      
+      scale = Math.max(0.2, scale);
+      
+      return scale;
+    };
 
-        // Ограничиваем минимальный масштаб
-        if (width <= 480) {
-          scale = Math.max(0.25, scale);
-          gap = 60;
-        } else if (width <= 768) {
-          scale = Math.max(0.35, scale);
-          gap = 70;
-        } else if (width <= 1024) {
-          scale = Math.max(0.45, scale);
-          gap = 80;
-        } else {
-          scale = Math.max(0.65, scale);
-          gap = 100;
-        }
-      }
+    const handleResize = () => {
+      const scale = calculateScale();
       
       gsap.to(contentWrapperRef.current, {
-        scale,
-        gap: `${gap}px`,
+        scale: scale,
+        force3D: false,
         duration: 0.3,
-        ease: 'power2.out'
-      });
-
-      // Анимируем появление блоков
-      gsap.to(descriptionBlockRef.current, {
-        opacity: 1,
-        duration: 0.8,
-        delay: 0.2,
-        ease: 'power2.out'
-      });
-      
-      gsap.to(accentBlockRef.current, {
-        opacity: 1,
-        duration: 0.8,
-        delay: 0.5,
-        ease: 'power2.out'
+        ease: "power2.out",
+        transformOrigin: "center center"
       });
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
+
+    let resizeTimeout: ReturnType<typeof setTimeout>;
+    const debouncedResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(handleResize, 100);
+    };
+
+    window.addEventListener('resize', debouncedResize);
+    
+    if (serviceTextRef.current) {
+      gsap.fromTo(serviceTextRef.current, 
+        { y: 20, opacity: 0 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: 0.8, 
+          ease: "power2.out",
+          delay: 0.5
+        }
+      );
+    }
+    
+    if (watermarkRef.current) {
+      gsap.fromTo(watermarkRef.current, 
+        { opacity: 0 },
+        { 
+          opacity: 1, 
+          duration: 1.2, 
+          ease: "power1.out",
+          delay: 0.8
+        }
+      );
+    }
+    
+    if (serviceDescriptionRef.current) {
+      gsap.fromTo(serviceDescriptionRef.current, 
+        { y: 20, opacity: 0 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: 0.8, 
+          ease: "power2.out",
+          delay: 0.6
+        }
+      );
+    }
+
+    if (watermarkCircleRef.current) {
+      gsap.fromTo(watermarkCircleRef.current, 
+        { opacity: 0, scale: 0.8 },
+        { 
+          opacity: 1, 
+          scale: 1,
+          duration: 1.2, 
+          ease: "power2.out",
+          delay: 1.0
+        }
+      );
+      
+      const svgElement = watermarkCircleRef.current as HTMLDivElement;
+      if (svgElement) {
+        const pathElements = svgElement.querySelectorAll('path');
+        
+        gsap.fromTo(pathElements, 
+          { opacity: 0 },
+          { 
+            opacity: 1, 
+            duration: 0.8,
+            stagger: 0.02,
+            ease: "power1.inOut",
+            delay: 1.2
+          }
+        );
+      }
+    }
+    
+    const serviceDescriptionText = document.querySelector('.service-description-text');
+    if (serviceDescriptionText) {
+      gsap.fromTo(serviceDescriptionText, 
+        { opacity: 0, scale: 0.8 },
+        { 
+          opacity: 1, 
+          scale: 1,
+          duration: 0.8,
+          ease: "power2.out",
+          delay: 1.6
+        }
+      );
+    }
+    
+      
+    if (watermarkRef.current) {
+      gsap.set(watermarkRef.current, {
+        '--before-width': '0%',
+        '--after-width': '0%'
+      });
+      
+      gsap.to(watermarkRef.current, {
+        '--before-width': '80%',
+        '--after-width': '80%',
+        duration: 1.5,
+        ease: "power2.inOut",
+        delay: 0.8
+      });
+    }
     
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', debouncedResize);
+      clearTimeout(resizeTimeout);
     };
   }, []);
 
   return (
     <main className="home">
-          <Header />
+      <Header />
       <div className="main-content">
         <section className="top-section">
           <div className="hero-center-logo">
@@ -109,22 +194,26 @@ export default function Home() {
         </section>
 
         <section className="bottom-section">
-          <div className="lines-container">
-            <div className="top-line"></div>
+          <div className="top-line"></div>
+          <div className="content-wrapper" ref={contentWrapperRef}>
+            <DescriptionBlock ref={descriptionBlockRef} />
+            <AccentBlock ref={accentBlockRef} />
+          </div>
+          <div className="bottom-line-container">
             <div className="bottom-line"></div>
           </div>
-          <div className="content-wrapper" ref={contentWrapperRef}>
-            <div className="description-block" ref={descriptionBlockRef}>
-              <div className="description-content">
-                <div>суть сервиса и для кого он с кратким описанием услуг</div>
-              </div>
-            </div>
-            <div className="accent-block" ref={accentBlockRef}>
-              {/* Здесь может быть размещен дополнительный контент при необходимости */}
+          <div className="service-text" ref={serviceTextRef}>
+          </div>
+        </section>
+        
+        <div className="watermark-container" ref={watermarkRef}>
+          <div className="watermark-text">
+            <CircleTextSvg ref={watermarkCircleRef} />
+            <div className="service-description-text">
+              <p>суть сервиса и для кого он с кратким описанием услуг предоставляемых сервисом</p>
             </div>
           </div>
-          <div className="bottom-line last-line"></div>
-        </section>
+        </div>
       </div>
       <Footer />
     </main>

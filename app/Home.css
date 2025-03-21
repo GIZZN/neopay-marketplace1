@@ -3,7 +3,7 @@
     background-color: #ffffff;
     position: relative;
     overflow: hidden;
-    padding-top: 80px;
+    padding-top: 110px;
   }
   
   /* Фоновые элементы */
@@ -22,16 +22,16 @@
     background-size: 30px 30px;
     mask-image: radial-gradient(circle at center, transparent 0%, black 100%);
   }
-  
-  .glow-circle {/* Декоративные круги с градиентным свечением на фоне */
-    position: fixed; /* Фиксируем позицию */
+    
+    .glow-circle {  
+    position: fixed;  
     border-radius: 50%;
     filter: blur(120px);
-    pointer-events: none; /* Игнорируем взаимодействие с элементом */
+    pointer-events: none;     
     opacity: 0.5;
   }
   
-  .glow-circle.primary {/* Фиолетовое свечение в правом верхнем углу */
+  .glow-circle.primary {  
     background: var(--primary-color);
     width: 40vw;
     height: 40vw;
@@ -41,7 +41,7 @@
     animation: float 10s ease-in-out infinite;
   }
   
-  .glow-circle.secondary {/* Розовое свечение в левом нижнем углу */
+  .glow-circle.secondary {  
     background: var(--secondary-color);
     width: 35vw;
     height: 35vw;
@@ -55,23 +55,22 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: calc(100vh - 80px); /* Учитываем высоту хедера */
+    min-height: calc(100vh - 60px);
     position: relative;
     z-index: 1;
   }
   
-  /* Верхняя секция с логотипом */
+  
   .top-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 60vh;
+    min-height: 30vh;
     width: 100%;
-    padding: 4rem 0;
+    padding: 5rem 0;
     background-color: #fff;
-    border-bottom-left-radius: 24px;
-    border-bottom-right-radius: 24px;
+    border-radius: 24px;
     position: relative;
   }
   
@@ -83,7 +82,7 @@
   }
   
   .hero-center-logo svg {
-    width: 240px;
+    width: 150px;   
     height: auto;
   }
   
@@ -92,12 +91,11 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 3rem;
-    font-weight: 750;
+    margin-top: 2rem;
   }
   
   .tagline {
-    padding: 0.75rem 2rem;
+    padding: 0.75rem 5rem;
     background-color: #161616;
     color: #fff;
     font-size: 1.125rem;
@@ -106,114 +104,118 @@
     white-space: nowrap;
   }
   
-  /* Нижняя секция с описанием */
+    
   .bottom-section {
     position: relative;
+    width: 100%;
+    min-height: 70vh;
     height: 100vh;
-    max-height: 900px;
     background-color: #161616;
     z-index: 2;
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
+    border-top-left-radius: clamp(16px, 2vw, 24px);
+    border-top-right-radius: clamp(16px, 2vw, 24px);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
   }
   
-  .lines-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 32px 0;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    pointer-events: none;
-  }
-  
   .top-line {
-    width: 46%;
+    position: absolute;
+    border-radius: 100px;
+    width: 1075px;
     height: 3px;
     background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    margin: 0 auto;
-    margin-top: 20px;
+    top: 40px;
+    left: 98px;
+    z-index: 3;
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+  
+  .bottom-line-container {
+    position: absolute;
+    border-radius: 100px;
+    bottom: 40px;
+    left: 94px;
+    z-index: 3;
+    transition: left 0.3s ease;
   }
   
   .bottom-line {
-    width: 89%;
+    width: 200px;
     height: 3px;
     background-color: rgb(255, 255, 255);
-    border-radius: 10px;
-    margin: 0 auto;
-    position: relative;
-    bottom: 30px;
-  }
-  
-  .last-line {
-    margin-top: auto;
-    position: absolute;
-    bottom: 40px;
-    left: 0;
-    right: 0;
-    z-index: 0;
+    transition: width 0.3s ease;
   }
   
   .content-wrapper {
     position: relative;
-    width: 1700px;
-    height: 808px;
-    transform-origin: center center;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 120px;
-    will-change: transform, gap;
-    margin-top: 120px;
-    z-index: 2;
+    transform-origin: center center;
+    will-change: transform;
   }
   
   .description-block {
-    position: relative;
-    width: 873px;
+    position: absolute;
+    width: 1200px;
     height: 808px;
-    clip-path: path('M873 594.846C873 604.194 866.524 612.295 857.406 614.354L-2.43187e-05 808V197.167L873 0V594.846Z');
-    background-color: white;
+    background-color: transparent;
     z-index: 1;
-    padding: 64px;
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
-    will-change: transform, opacity;
-    opacity: 0;
-    transform: translateX(-40px);
+    will-change: opacity, transform;
+    left: 42%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: -200px;
+    transition: transform 0.3s ease-out;
+  }
+  
+  .description-block svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
   
   .accent-block {
-    position: relative;
-    width: 691px;
-    height: 760px;
-    clip-path: path('M691 186.187L3.52859e-05 0V576.813L675.878 758.925C675.878 758.925 680 760 685 760C690 760 691 755 691 750V186.187Z');
-    background-color: #1CCDAA;
+    position: absolute;
+    width: 700px;
+    height: 757px;
+    background-color: transparent;
     z-index: 1;
-    will-change: transform, opacity;
-    opacity: 0;
-    transform: translateX(40px);
+    will-change: opacity, transform;
+    left: 59%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 600px;
+    margin-top: 85px;
+    transition: transform 0.3s ease-out;
+  }
+  
+  .accent-block svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
   
   .description-content {
-    font-size: 32px;
+    position: relative;
+    z-index: 2;
     font-weight: 600;
     color: #161616;
-    max-width: 450px;
-    line-height: 1.2;
-    margin-top: 140px;
-    margin-left: 80px;
+    max-width: 100%;
+    font-size: 39px;
+    margin-top: 250px;
+    margin-left: 20px;
     text-align: left;
   }
   
@@ -221,15 +223,15 @@
     margin-bottom: 8px;
   }
   
-  .container {/* Контейнер для центрирования и ограничения ширины контента */
+  .container {  
     width: 100%;
-    max-width: 1280px; /* Уменьшаем максимальную ширину */
+    max-width: 1920px; 
     margin: 0 auto;
     padding: 0 1.5rem;
     box-sizing: border-box;
   }
   
-  .hero-section {/* Секция с заголовком и подзаголовком */
+  .hero-section {
     padding: 6rem 0 4rem;
     text-align: center;
     position: relative;
@@ -255,27 +257,27 @@
     animation: fadeIn 1s ease-out;
   }
   
-  .hero-title {/* Главный заголовок */
+  .hero-title {
     font-size: 5rem;
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.58rem;
     line-height: 1.1;
     letter-spacing: -0.02em;
     animation: slideDown 0.5s ease-out 0.2s both;
   }
   
-  .gradient-text {/* Градиентный текст в заголовке */
+  .gradient-text {
     background: linear-gradient(135deg, #8B5CF6, #EC4899);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
   
-  .text-white {/* Белый текст в заголовке */
+  .text-white {
     color: #fff;
   }
   
-  .hero-subtitle {/* Подзаголовок под основным заголовком */
+  .hero-subtitle {
     font-size: 1.25rem;
     color: var(--text-secondary);
     max-width: 600px;
@@ -317,14 +319,14 @@
     animation: slideUp 0.5s ease-out 0.4s both;
   }
   
-  .search-wrapper {/* Обертка поисковой строки */
+  .search-wrapper {
     max-width: 800px;
     margin: 3rem auto 0;
     padding: 0 1.5rem;
     animation: slideUp 0.5s ease-out 0.5s both;
   }
   
-  .search-container {/* Контейнер с поиском и тегами */
+  .search-container {
     background: rgba(17, 24, 39, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1.5rem;
@@ -338,7 +340,7 @@
     margin-bottom: 1rem;
   }
   
-  .search-input {/* Поле ввода поиска */
+  .search-input {
     flex: 1;
     padding: 1rem 1.5rem;
     background: rgba(17, 24, 39, 0.8);
@@ -374,25 +376,25 @@
     transform: translateY(-1px);
   }
   
-  .popular-tags {/* Контейнер с популярными тегами */
+  .popular-tags {
     margin-top: 1rem;
     display: flex;
     align-items: center;
     gap: 1rem;
   }
   
-  .tag-label {/* Текст "Популярное:" */
+  .tag-label {
     color: var(--text-secondary);
     font-size: 0.875rem;
   }
   
-  .tags-list {/* Список тегов */
+  .tags-list {
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
   }
   
-  .tag {/* Отдельный тег */
+  .tag {
     padding: 0.5rem 1rem;
     background: rgba(17, 24, 39, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -410,7 +412,7 @@
     transform: translateY(-1px);
   }
   
-  .services-section {/* Секция с карточками услуг */
+  .services-section {
     padding: 6rem 0;
     position: relative;
   }
@@ -426,13 +428,13 @@
     color: transparent;
   }
   
-  .services-grid {/* Сетка для карточек услуг */
+  .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
   }
   
-  .service-card {/* Карточка услуги */
+  .service-card {
     background: rgba(17, 24, 39, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1.5rem;
@@ -449,20 +451,20 @@
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
   }
   
-  .service-icon {/* Иконка в карточке услуги */
+  .service-icon {
     font-size: 3rem;
     margin-bottom: 1.5rem;
     display: inline-block;
   }
   
-  .service-card h3 {/* Название услуги */
+  .service-card h3 {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
     color: var(--text-primary);
   }
   
-  .service-card p {/* Описание услуги */
+  .service-card p {
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     line-height: 1.6;
@@ -490,7 +492,7 @@
     color: var(--success-color);
   }
   
-  .service-price {/* Цена услуги */
+  .service-price {
     display: block;
     color: var(--success-color);
     font-weight: 600;
@@ -498,7 +500,7 @@
     margin-bottom: 1.5rem;
   }
   
-  .service-btn {/* Кнопка в карточке услуги */
+  .service-btn {
     width: 100%;
     padding: 0.75rem;
     background: var(--primary-color);
@@ -515,7 +517,7 @@
     transform: translateY(-1px);
   }
   
-  @media (max-width: 1024px) {/* Адаптивные стили для мобильных устройств */
+  @media (max-width: 1024px) {
     .hero-title {
       font-size: 4rem;
     }
@@ -530,6 +532,10 @@
   }
   
   @media (max-width: 768px) {
+    .home {
+      padding-top: 50px;
+    }
+    
     .hero-title {
       font-size: 3rem;
     }
@@ -599,19 +605,19 @@
   .animate-scale-in { animation: scaleIn 1s ease-out; }
   
   /* Добавляем стили для секции заказов */
-  .orders-section {/* Секция с активными заказами */
+  .orders-section {
     padding: 6rem 0;
     position: relative;
   }
   
-  .section-header {/* Шапка секции заказов с фильтрами */
+  .section-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 3rem;
   }
   
-  .header-content h2 {/* Заголовок секции заказов */
+  .header-content h2 {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -626,12 +632,12 @@
     font-size: 1.125rem;
   }
   
-  .view-controls {/* Группа кнопок фильтров */
+  .view-controls {
     display: flex;
     gap: 0.75rem;
   }
   
-  .view-btn {/* Кнопка фильтра */
+  .view-btn {
     padding: 0.75rem 1.25rem;
     background: rgba(17, 24, 39, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -649,19 +655,19 @@
     color: var(--primary-color);
   }
   
-  .view-btn.active {/* Активная кнопка фильтра */
+  .view-btn.active {
     background: rgba(99, 102, 241, 0.1);
     border-color: var(--primary-color);
     color: var(--primary-color);
   }
   
-  .orders-grid {/* Сетка с заказами и чатом */
+  .orders-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
   }
   
-  .order-card {/* Карточка заказа */
+  .order-card {
     background: rgba(17, 24, 39, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1.5rem;
@@ -678,7 +684,7 @@
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   }
   
-  .order-status {/* Статус заказа */
+  .order-status {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -687,7 +693,7 @@
     margin-bottom: 1rem;
   }
   
-  .status-dot {/* Точка статуса заказа */
+  .status-dot {
     width: 8px;
     height: 8px;
     background: var(--success-color);
@@ -695,7 +701,7 @@
     animation: pulse 2s infinite;
   }
   
-  .game-info {/* Информация об игре */
+  .game-info {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -706,32 +712,32 @@
     font-size: 1.5rem;
   }
   
-  .game-name {/* Название игры */
+  .game-name {
     color: var(--text-secondary);
     font-size: 0.875rem;
   }
   
-  .order-title {/* Заголовок заказа */
+  .order-title {
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.75rem;
   }
   
-  .order-description {/* Описание заказа */
+  .order-description {
     color: var(--text-secondary);
     font-size: 0.875rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
   }
   
-  .order-meta {/* Нижняя часть карточки заказа */
+  .order-meta { 
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   
-  .price-tag {/* Цена заказа */
+  .price-tag {  
     display: flex;
     align-items: baseline;
     gap: 0.25rem;
@@ -748,7 +754,7 @@
     font-size: 0.875rem;
   }
   
-  .action-btn {/* Кнопка действия в заказе */
+  .action-btn {
     padding: 0.75rem 1.5rem;
     background: var(--primary-color);
     border: none;
@@ -764,7 +770,7 @@
     transform: translateY(-1px);
   }
   
-  .chat-section {/* Секция чата */
+  .chat-section {    
     background: rgba(17, 24, 39, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 1.5rem;
@@ -775,7 +781,7 @@
     backdrop-filter: blur(12px);
   }
   
-  .chat-header {/* Шапка чата */
+  .chat-header {  
     display: flex;
     justify-content: space-between; 
     align-items: center;
@@ -784,7 +790,7 @@
     margin-bottom: 1rem;
   }
   
-  .chat-info h3 {/* Заголовок чата */
+  .chat-info h3 { 
     font-size: 1.125rem;
     font-weight: 600;
     color: var(--text-primary);
@@ -796,7 +802,7 @@
     font-size: 0.875rem;
   }
   
-  .online-status {/* Статус онлайн в чате */
+  .online-status {  
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -812,7 +818,7 @@
     animation: pulse 2s infinite;
   }
   
-  .message-placeholder {/* Заглушка для пустого чата */
+  .message-placeholder {  
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -823,7 +829,7 @@
     padding: 2rem;
   }
   
-  .placeholder-icon {/* Иконка в заглушке чата */
+  .placeholder-icon { 
     font-size: 3rem;
     margin-bottom: 1rem;
     opacity: 0.5;
@@ -873,7 +879,7 @@
     box-shadow: 0 4px 20px rgba(99, 102, 241, 0.15);
   }
   
-  /* Добавляем стили для секции с преимуществами */
+  
   .features-section {
     padding: 6rem 0;
     position: relative;
@@ -926,7 +932,7 @@
     line-height: 1.6;
   }
   
-  /* Добавляем стили для анимации появления элементов */
+    
   @keyframes scaleIn {
     from { transform: scale(0.95); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
@@ -983,7 +989,6 @@
     }
   }
   
-  /* Добавляем стили для неоморфизма */
   .neomorphism {
     background: rgba(17, 24, 39, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -993,7 +998,6 @@
     backdrop-filter: blur(12px);
   }
   
-  /* Добавляем стили для стекломорфизма */
   .glassmorphism {
     background: rgba(17, 24, 39, 0.6);
     backdrop-filter: blur(12px);
@@ -1001,12 +1005,10 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   }
   
-  /* Добавляем стили для подсветки при наведении */
   .hover-glow:hover {
     box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
   }
   
-  /* Добавляем стили для анимации пульсации */
   .pulse {
     animation: pulse 2s infinite;
   }
@@ -1026,7 +1028,6 @@
     }
   }
   
-  /* Добавляем стили для текстового градиента */
   .gradient-text-hover {
     transition: all 0.3s ease;
   }
@@ -1038,36 +1039,34 @@
     color: transparent;
   }
   
-  /* Добавляем стили для подсказок */
   .tooltip {
     position: relative;
   }
   
   .tooltip::before {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.5rem 1rem;
-    background: rgba(17, 24, 39, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 0.5rem;
-    color: var(--text-primary);
-    font-size: 0.875rem;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 1rem;
+  background: rgba(17, 24, 39, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
   }
-  
+
   .tooltip:hover::before {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(-8px);
   }
   
-  /* Добавляем стили для бейджей */
   .badge {
     display: inline-flex;
     align-items: center;
@@ -1098,104 +1097,349 @@
     color: var(--error-color);
   }
 
+  @media (min-width: 1921px) {
+    .content-wrapper {
+      padding: 0 160px;
+    }
+    
+    .top-line {
+      width: 525px;
+      left: 56px;
+    }
+    
+    .bottom-line-container {
+      left: 56px;
+    }
+  }
+
   @media (max-width: 1440px) {
-    .bottom-section {
-      height: 90vh;
-      max-height: 800px;
-    }
     .content-wrapper {
-      transform: scale(0.65);
-      margin-top: 100px;
-      gap: 100px;
+      padding: 0 80px;
     }
-    .description-content {
-      margin-top: 140px;
-      margin-left: 70px;
-    }
+    
     .top-line {
-      width: 30%;
+      width: 525px;
+      left: 56px;
     }
-    .description-block {
-      transform: translateX(-30px);
-    }
-    .accent-block {
-      transform: translateX(30px);
+    
+    .bottom-line-container {
+      left: 56px;
     }
   }
-  
+
   @media (max-width: 1024px) {
-    .bottom-section {
-      height: 80vh;
-      max-height: 700px;
-    }
     .content-wrapper {
-      transform: scale(0.45);
-      margin-top: 80px;
-      gap: 80px;
+      justify-content: center;
+      padding: 0 40px;
+      gap: 40px;
     }
-    .description-content {
-      margin-top: 120px;
-      margin-left: 60px;
+    
+    .description-block::before,
+    .accent-block::before {
+      transform: none;
     }
+    
     .top-line {
-      width: 25%;
+      width: 400px;
+      left: 40px;
     }
-    .description-block {
-      transform: translateX(-25px);
-    }
-    .accent-block {
-      transform: translateX(25px);
+    
+    .bottom-line-container {
+      left: 40px;
     }
   }
-  
+
   @media (max-width: 768px) {
+    .home {
+      padding-top: 50px;
+    }
+
+    .top-section {
+      min-height: 15vh;
+    }
+    
     .bottom-section {
-      height: 70vh;
-      max-height: 600px;
+      min-height: 85vh;
+      height: 85vh;
     }
-    .content-wrapper {
-      transform: scale(0.35);
-      margin-top: 60px;
-      gap: 70px;
-    }
+    
     .description-content {
-      margin-top: 120px;
-      margin-left: 50px;
-      font-size: 28px;
+      font-size: 20px;
+      margin-top: clamp(40px, 6vw, 80px);
     }
+    
     .top-line {
-      width: 20%;
+      width: 300px;
+      left: 30px;
     }
-    .description-block {
-      transform: translateX(-20px);
+    
+    .bottom-line-container {
+      left: 30px;
     }
-    .accent-block {
-      transform: translateX(20px);
+    
+    .bottom-line {
+      width: 150px;
+    }
+    
+    .service-text {
+      justify-content: flex-start;
+      padding: 0 10px;
+    }
+    
+    .service-description {
+      font-size: 16px;
+      margin-left: 30px;
+    }
+    
+    .watermark-circle {
+      width: 300px;
+      height: 300px;
     }
   }
-  
+
   @media (max-width: 480px) {
+    .home {
+      padding-top: 40px;
+    }
+
+    .top-section {
+      min-height: 15vh;
+    }
+    
     .bottom-section {
-      height: 60vh;
-      max-height: 500px;
+      min-height: 85vh;
+      height: 85vh;
     }
-    .content-wrapper {
-      transform: scale(0.25);
-      margin-top: 40px;
-      gap: 60px;
-    }
+    
     .description-content {
-      margin-top: 100px;
-      margin-left: 40px;
-      font-size: 24px;
+      font-size: 18px;
+      margin-top: clamp(30px, 5vw, 60px);
     }
+    
     .top-line {
-      width: 15%;
+      width: 200px;
+      left: 20px;
     }
-    .description-block {
-      transform: translateX(-15px);
+    
+    .bottom-line-container {
+      left: 20px;
     }
-    .accent-block {
-      transform: translateX(15px);
+    
+    .bottom-line {
+      width: 100px;
+    }
+    
+    .service-text {
+      justify-content: flex-start;
+      padding: 0 5px;
+    }
+    
+    .service-description {
+      font-size: 14px;
+      margin-left: 20px;
+    }
+    
+    .watermark-circle {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  .top-line,
+  .bottom-line {
+    transition: width 0.3s ease-out;
+
+  }
+
+  .tagline {
+    transition: all 0.3s ease-out;
+  }
+
+  .service-text {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 20px;
+    color: #fff;
+    z-index: 5;
+    max-width: 100%;
+    margin: 0 auto;
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  .service-description {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+    text-align: left;
+    opacity: 0.85;
+    margin-left: 95px;
+    font-style: italic;
+    flex: 1;
+  }
+
+  .watermark-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    padding: 0;
+    background-color: #161616;
+    overflow: hidden;
+    box-sizing: border-box;
+    --before-width: 80%;
+    --after-width: 80%;
+  }
+
+  .watermark-container::before,
+  .watermark-container::after {
+    content: '';
+    position: relative;
+    display: block;
+    height: 1px;
+    background-color: #fff;
+    margin: 0 auto;
+    width: var(--before-width);
+    max-width: 968px;
+    transition: width 0.1s ease;
+  }
+  
+  .watermark-container::before {
+    margin-bottom: 40px;
+    width: var(--before-width);
+  }
+  
+  .watermark-container::after {
+    margin-top: 40px;
+    width: var(--after-width);
+  }
+
+  .watermark-text {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+  }
+  
+  .watermark-circle {
+    position: relative;
+    width: 332px;
+    height: 341px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    margin: 0 auto;
+    background-color: transparent;
+    transform-origin: center center;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+  }
+  
+  .watermark-circle svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
+    will-change: transform;
+    transition: transform 0.3s ease-out;
+  }
+  
+  .watermark-circle svg path {
+    fill: #464646;
+    transition: fill 0.3s ease-out;
+  }
+  
+  .watermark-circle:hover svg {
+    transform: scale(1.02);
+  }
+  
+  .watermark-circle:hover svg path {
+    fill: #5a5a5a;
+  }
+  
+  .service-description-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 230px;
+    text-align: left;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 400;
+    z-index: 5;
+    padding: 20px;
+  }
+  
+  .service-description-text p {
+    margin: 0;
+  }
+  
+  .description-line {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .watermark-text {
+      height: 250px;
+      margin: 30px 0;
+    }
+    
+    .watermark-circle {
+      width: 280px;
+      height: 288px;
+    }
+    
+    .service-description-text {
+      width: 180px;
+      font-size: 12px;
+    }
+    
+    .watermark-container::before,
+    .watermark-container::after {
+      width: 70%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .watermark-container {
+      padding: 20px 0;
+    }
+    
+    .watermark-text {
+      height: 200px;
+      margin: 20px 0;
+    }
+    
+    .watermark-circle {
+      width: 220px;
+      height: 226px;
+    }
+    
+    .service-description-text {
+      width: 140px;
+      font-size: 10px;
+    }
+    
+    .watermark-container::before,
+    .watermark-container::after {
+      width: 60%;
     }
   }
