@@ -16,8 +16,8 @@ export default function Home() {
   const accentBlockRef = useRef(null);
   const serviceTextRef = useRef(null);
   const watermarkRef = useRef(null);
-  const serviceDescriptionRef = useRef(null);
   const watermarkCircleRef = useRef(null);
+  const featuresBlockRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -29,18 +29,16 @@ export default function Home() {
       const baseHeight = 808;
       
       let scale = Math.min(
-        viewportWidth / baseWidth * 0.85, // 85% от максимальной ширины
-        viewportHeight / baseHeight * 0.8  // 80% от максимальной высоты
+        viewportWidth / baseWidth * 0.85,
+        viewportHeight / baseHeight * 0.8
       );
       
-      // Устанавливаем минимальный масштаб для очень маленьких экранов
-      // Можно изменить эти значения для лучшей настройки
       if (viewportWidth <= 400) {
-        scale = Math.max(0.15, scale); // Для экранов меньше 400px - можно изменить
+        scale = Math.max(0.15, scale);
       } else if (viewportWidth <= 480) {
-        scale = Math.max(0.17, scale); // Для экранов меньше 480px - можно изменить
+        scale = Math.max(0.17, scale);
       } else {
-        scale = Math.max(0.2, scale); // Для остальных экранов - можно изменить
+        scale = Math.max(0.2, scale);
       }
       
       return scale;
@@ -71,87 +69,16 @@ export default function Home() {
     if (serviceTextRef.current) {
       gsap.fromTo(serviceTextRef.current, 
         { y: 20, opacity: 0 },
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.8, 
-          ease: "power2.out",
-          delay: 0.5
-        }
+        { y: 0, opacity: 1, duration: 0.8, ease: "power2.out", delay: 0.5 }
       );
     }
     
     if (watermarkRef.current) {
       gsap.fromTo(watermarkRef.current, 
         { opacity: 0 },
-        
-        { 
-          opacity: 1, 
-          duration: 1.2, 
-          ease: "power1.out",
-          delay: 0.8
-        }
-      );
-    }
-    
-    if (serviceDescriptionRef.current) {
-      gsap.fromTo(serviceDescriptionRef.current, 
-        { y: 20, opacity: 0 },
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.8, 
-          ease: "power2.out",
-          delay: 0.6
-        }
-      );
-    }
-
-    if (watermarkCircleRef.current) {
-      gsap.fromTo(watermarkCircleRef.current, 
-        { opacity: 0, scale: 0.8 },
-        { 
-          opacity: 1, 
-          scale: 1,
-          duration: 1.2, 
-          ease: "power2.out",
-          delay: 1.0
-        }
+        { opacity: 1, duration: 1.2, ease: "power1.out", delay: 0.8 }
       );
       
-      const svgElement = watermarkCircleRef.current as HTMLDivElement;
-      if (svgElement) {
-        const pathElements = svgElement.querySelectorAll('path');
-        
-        gsap.fromTo(pathElements, 
-          { opacity: 0 },
-          { 
-            opacity: 1, 
-            duration: 0.8,
-            stagger: 0.02,
-            ease: "power1.inOut",
-            delay: 1.2
-          }
-        );
-      }
-    }
-    
-    const serviceDescriptionText = document.querySelector('.service-description-text');
-    if (serviceDescriptionText) {
-      gsap.fromTo(serviceDescriptionText, 
-        { opacity: 0, scale: 0.8 },
-        { 
-          opacity: 1, 
-          scale: 1,
-          duration: 0.8,
-          ease: "power2.out",
-          delay: 1.6
-        }
-      );
-    }
-    
-      
-    if (watermarkRef.current) {
       gsap.set(watermarkRef.current, {
         '--before-width': '0%',
         '--after-width': '0%'
@@ -165,6 +92,56 @@ export default function Home() {
         delay: 0.8
       });
     }
+    
+    if (watermarkCircleRef.current) {
+      gsap.fromTo(watermarkCircleRef.current, 
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, duration: 1.2, ease: "power2.out", delay: 1.0 }
+      );
+      
+      const svgElement = watermarkCircleRef.current as HTMLDivElement;
+      if (svgElement) {
+        const pathElements = svgElement.querySelectorAll('path');
+        
+        gsap.fromTo(pathElements, 
+          { opacity: 0 },
+          { opacity: 1, duration: 0.8, stagger: 0.02, ease: "power1.inOut", delay: 1.2 }
+        );
+      }
+    }
+    
+    const serviceDescriptionText = document.querySelector('.service-description-text');
+    if (serviceDescriptionText) {
+      gsap.fromTo(serviceDescriptionText, 
+        { opacity: 0, scale: 0.8 },
+        { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out", delay: 1.6 }
+      );
+    }
+    
+    if (!featuresBlockRef.current) return;
+    
+    gsap.fromTo(featuresBlockRef.current, 
+      { opacity: 0, y: 50 }, 
+      { 
+        opacity: 1, 
+        y: 0, 
+        duration: 0.8, 
+        ease: "power2.inOut",
+        delay: 0.5 
+      }
+    );
+    
+    gsap.fromTo(".feature-item", 
+      { opacity: 0, y: 20 }, 
+      { 
+        opacity: 1, 
+        y: 0, 
+        duration: 0.6, 
+        stagger: 0.1, 
+        ease: "power2.out",
+        delay: 0.8 
+      }
+    );
     
     return () => {
       window.removeEventListener('resize', debouncedResize);
@@ -211,15 +188,74 @@ export default function Home() {
           <div className="bottom-line-container">
             <div className="bottom-line"></div>
           </div>
-          <div className="service-text" ref={serviceTextRef}>
-          </div>
+          <div className="service-text" ref={serviceTextRef}></div>
         </section>
         
         <div className="watermark-container" ref={watermarkRef}>
           <div className="watermark-text">
             <CircleTextSvg ref={watermarkCircleRef} />
             <div className="service-description-text">
-              <p>суть сервиса и для кого он с кратким описанием услуг предоставляемых сервисом</p>
+              <p><span>суть сервиса и для кого он с кратким описанием услуг предоставляемых сервисом</span></p>
+            </div>
+          </div>
+        </div>
+        <div className="lower-line-container">
+          <div className="lower-line"></div>
+        </div>
+        
+        <div className="features-block-container">
+          <div className="features-block" ref={featuresBlockRef}>
+            <svg width="100%" height="100%" viewBox="0 0 1666 709" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1666 173.254L0 0V536.746L1652.76 708.623C1659.84 709.359 1666 703.806 1666 696.687V173.254Z" fill="#1CCDAA"/>
+            </svg>
+            <div className="features-content">
+              <div className="feature-card">
+                <div className="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 4L4 12L12 20L20 12L12 4Z" stroke="#1CCDAA" strokeWidth="3" />
+                    <path d="M4 12L12 20L20 12" stroke="#1CCDAA" strokeWidth="3" />
+                    <path d="M4 6L12 14L20 6" stroke="#1CCDAA" strokeWidth="3" />
+                  </svg>
+                </div>
+                <h3 className="card-title">Безопасность</h3>
+                <p className="card-description">Гарантия сохранности средств и данных на всех этапах работы с сервисом</p>
+                <button className="card-button">Подробнее</button>
+              </div>
+              
+              <div className="feature-card">
+                <div className="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="#1CCDAA" strokeWidth="3" />
+                    <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="#1CCDAA" strokeWidth="3" />
+                  </svg>
+                </div>
+                <h3 className="card-title">Удобство</h3>
+                <p className="card-description">Интуитивно понятный интерфейс и быстрые транзакции </p>
+                <button className="card-button">Подробнее</button>
+              </div>
+              
+              <div className="feature-card">
+                <div className="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#1CCDAA" strokeWidth="3" />
+                  </svg>
+                </div>
+                <h3 className="card-title">Поддержка</h3>
+                <p className="card-description">Круглосуточная техническая поддержка и консультации специалистов</p>
+                <button className="card-button">Подробнее</button>
+              </div>
+              
+              <div className="feature-card">
+                <div className="card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 5H7C6.46957 5 5.96086 5.21071 5.58579 5.58579C5.21071 5.96086 5 6.46957 5 7V19C5 19.5304 5.21071 20.0391 5.58579 20.4142C5.96086 20.7893 6.46957 21 7 21H17C17.5304 21 18.0391 20.7893 18.4142 20.4142C18.7893 20.0391 19 19.5304 19 19V7C19 6.46957 18.7893 5.96086 18.4142 5.58579C18.0391 5.21071 17.5304 5 17 5H15" stroke="#1CCDAA" strokeWidth="3" />
+                    <path d="M9 5C9 4.46957 9.21071 3.96086 9.58579 3.58579C9.96086 3.21071 10.4696 3 11 3H13C13.5304 3 14.0391 3.21071 14.4142 3.58579C14.7893 3.96086 15 4.46957 15 5C15 5.53043 14.7893 6.03914 14.4142 6.41421C14.0391 6.78929 13.5304 7 13 7H11C10.4696 7 9.96086 6.78929 9.58579 6.41421C9.21071 6.03914 9 5.53043 9 5Z" stroke="#1CCDAA" strokeWidth="3" />
+                  </svg>
+                </div>
+                <h3 className="card-title">Лимиты</h3>
+                <p className="card-description">Выгодные тарифы с высокими лимитами для всех типов пользователей</p>
+                <button className="card-button">Подробнее</button>
+              </div>
             </div>
           </div>
         </div>
