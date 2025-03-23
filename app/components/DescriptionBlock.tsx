@@ -5,9 +5,8 @@ const DescriptionBlock = forwardRef<HTMLDivElement>((props, ref) => {
   const pathRef = useRef(null);
   const svgRef = useRef(null);
   const contentRef = useRef(null);
-  const textRef = useRef<HTMLDivElement>(null);
-  const textContent = "суть сервиса и для кого он с кратким описанием услуг предоставляемых сервисом";
-  
+  const textRef = useRef(null);
+
   useEffect(() => {
     const path = pathRef.current;
     const svg = svgRef.current;
@@ -15,68 +14,43 @@ const DescriptionBlock = forwardRef<HTMLDivElement>((props, ref) => {
     const content = contentRef.current;
     const text = textRef.current;
     
-    if (!block.current || !text) return;
+    if (!block.current) return;
     
-    // Разбиваем текст на отдельные символы и оборачиваем их в span
-    const chars = textContent.split('');
-    text.innerHTML = '';
-    
-    chars.forEach((char) => {
-      const charSpan = document.createElement('span');
-      charSpan.textContent = char === ' ' ? '\u00A0' : char; // Заменяем пробелы на неразрывные
-      charSpan.className = 'char';
-      text.appendChild(charSpan);
-    });
-    
-    const charElements = text.querySelectorAll('.char');
-    
-    // Устанавливаем начальное состояние
-    // Для SVG и path устанавливаем сразу финальное состояние без анимации
-    gsap.set([svg, path], { 
-      opacity: 1,
-      scale: 1,
-      transformOrigin: 'center center'
-    });
-    
-    // Отключаем все возможные эффекты анимации для SVG элементов
-    gsap.killTweensOf([svg, path]);
-    
-    // Для контента оставляем начальное невидимое состояние
-    gsap.set(content, { 
+    gsap.set([svg, path, content, text], { 
       opacity: 0 
-    });
-    
-    // Установка начальных значений для каждого символа
-    gsap.set(charElements, {
-      opacity: 0,
-      x: () => gsap.utils.random(-500, 500),
-      y: () => gsap.utils.random(-500, 500),
-      rotation: () => gsap.utils.random(-720, 720),
-      scale: 0
     });
     
     const tl = gsap.timeline({
       delay: 0.2
     });
     
-    // Анимируем только контент
-    tl.to(content, {
+    tl.to(svg, {
+      opacity: 1,
+      duration: 0.8,
+      ease: "power2.inOut"
+    })
+    .to(path, {
+      opacity: 1,
+      duration: 0.8,
+      ease: "power2.inOut"
+    }, "-=0.6")
+    .to(content, {
       opacity: 1,
       duration: 0.6,
       ease: "power2.inOut"
-    })
-    
-    // Анимируем каждый символ по отдельности
-    .staggerTo(charElements, 0.75, {
+    }, "-=0.4")
+    .to(text, {
       opacity: 1,
-      x: 0,
       y: 0,
-      rotation: 0,
-      scale: 1,
-      ease: "power4.inOut"
-    }, 0.0125);
+      duration: 0.8,
+      stagger: 0.05,
+      ease: "power3.out"
+    }, "-=0.2");
 
-  }, [ref, textContent]);
+  }, [ref]);
+
+  // Разделяем текст на массив слов для поэтапной анимации
+  const textContent = "суть сервиса и для кого он с кратким описанием услуг предоставляемых сервисом";
 
   return (
     <div className="description-block" ref={ref}>
@@ -96,7 +70,7 @@ const DescriptionBlock = forwardRef<HTMLDivElement>((props, ref) => {
         />
       </svg>
       <div className="description-content" ref={contentRef}>
-        <div className="description-text" ref={textRef}></div>
+        <div className="description-text" ref={textRef}>{textContent}</div>
       </div>
     </div>
   );

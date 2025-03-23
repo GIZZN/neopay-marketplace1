@@ -43,6 +43,7 @@
     padding: 0.75rem 5rem;
     background-color: #161616;
     color: #ffffffe7;
+    font-weight: 900;
     font-size: 1.125rem;
     border-radius: 2rem;
     text-align: center;
@@ -129,14 +130,6 @@
     right: 0;
     width: 100%;
     height: 100%;
-    will-change: auto;
-    transition: none;
-    transform: none !important;
-  }
-  
-  .description-block svg path {
-    will-change: auto;
-    transition: none;
   }
   
   .accent-block svg {
@@ -145,14 +138,6 @@
     left: 0;
     width: 110%;
     height: 100%;
-    will-change: auto;
-    transition: none;
-    transform: none !important;
-  }
-
-  .accent-block svg path {
-    will-change: auto;
-    transition: none;
   }
 
   .accent-block {
@@ -1317,14 +1302,6 @@
     left: 0;
     width: 100%;
     height: 280%;
-    will-change: auto;
-    transition: none;
-    transform: none !important;
-  }
-
-  .features-block svg path {
-    will-change: auto;
-    transition: none;
   }
 
   .features-content {
@@ -1561,7 +1538,7 @@
     .feature-card {
       width: 180px;
       height: 260px;
-      border-radius: 16px;
+      border-radius: 14px;
     }
     
     .features-content {
@@ -2166,24 +2143,14 @@
     font-size: 28px;
     font-weight: 900;
     color: #000000;
-    line-height: 1.3;
-    letter-spacing: 0.3px;
-    max-width: 85%;
+    max-width: 80%;
     position: relative;
     top: 0;
     transition: all 0.3s ease;
   }
+  
 
-  /* Стили для отдельных символов */
-  .description-text .char {
-    display: inline-block;
-    will-change: transform;
-    transform-origin: center center;
-    color: #000000;
-    transition: color 0.3s ease;
-  }
-
-  /* Декоративный элемент перед текстом */
+  /* Добавляем декоративный элемент перед текстом */
   .description-text::before {
     content: "";
     position: absolute;
@@ -2196,7 +2163,6 @@
     transform-origin: left;
     animation: lineExpand 1.2s ease forwards;
     animation-delay: 1s;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   }
 
   /* Анимация для декоративной линии */
@@ -2209,10 +2175,10 @@
     }
   }
 
-  /* Адаптивные настройки сохранены */
+  /* Адаптивные настройки для текста в description-block */
   @media (min-width: 1881px) and (max-width: 1980px) {
     .description-text {
-      font-size: 32px;
+      font-size: 70px;
       max-width: 85%;
       top: -30px;
     }
@@ -2224,7 +2190,7 @@
 
   @media (min-width: 1681px) and (max-width: 1880px) {
     .description-text {
-      font-size: 30px;
+      font-size: 70px;
       max-width: 85%;
       top: -20px;
     }
@@ -2236,7 +2202,7 @@
 
   @media (min-width: 1481px) and (max-width: 1680px) {
     .description-text {
-      font-size: 28px;
+      font-size: 70px;
       max-width: 85%;
       top: -10px;
     }
@@ -2248,7 +2214,7 @@
 
   @media (min-width: 1281px) and (max-width: 1480px) {
     .description-text {
-      font-size: 26px;
+      font-size: 70px;
       max-width: 85%;
       top: 0;
     }
@@ -2260,7 +2226,7 @@
 
   @media (min-width: 1081px) and (max-width: 1280px) {
     .description-text {
-      font-size: 24px;
+      font-size: 70px;
       max-width: 85%;
       top: 10px;
     }
@@ -2272,7 +2238,7 @@
 
   @media (min-width: 981px) and (max-width: 1080px) {
     .description-text {
-      font-size: 22px;
+      font-size: 75px;
       max-width: 90%;
       top: 20px;
     }
@@ -2284,7 +2250,7 @@
 
   @media (min-width: 881px) and (max-width: 980px) {
     .description-text {
-      font-size: 20px;
+      font-size: 80px;
       max-width: 90%;
       top: 50px;
     }
@@ -2296,7 +2262,7 @@
 
   @media (min-width: 781px) and (max-width: 880px) {
     .description-text {
-      font-size: 19px;
+      font-size: 80px;
       max-width: 90%;
       top: 60px;
     }
@@ -2308,7 +2274,7 @@
 
   @media (min-width: 681px) and (max-width: 780px) {
     .description-text {
-      font-size: 18px;
+      font-size: 75px;
       max-width: 90%;
       top: 90px;
     }
@@ -2320,7 +2286,7 @@
 
   @media (min-width: 581px) and (max-width: 680px) {
     .description-text {
-      font-size: 17px;
+      font-size: 70px;
       max-width: 90%;
       top: 120px;
     }
@@ -2332,7 +2298,7 @@
 
   @media (min-width: 481px) and (max-width: 580px) {
     .description-text {
-      font-size: 16px;
+      font-size: 65px;
       max-width: 90%;
       top: 160px;
     }
@@ -2344,7 +2310,7 @@
 
   @media (min-width: 360px) and (max-width: 480px) {
     .description-text {
-      font-size: 15px;
+      font-size: 65px;
       max-width: 90%;
       letter-spacing: 0.2px;
       top: 200px;
@@ -2352,5 +2318,339 @@
     
     .description-content {
       margin-top: 40px;
+    }
+  }
+   /* Стили для нового белого блока */
+   .description-white-block {
+    position: relative;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 60px 0;
+    z-index: 2;
+  }
+
+  .description-white-content {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .white-block-line {
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background-color: #161616;
+    top: -20px;
+    left: 20px;
+  }
+
+  .white-block-title {
+    font-size: 32px;
+    font-weight: 900;
+    color: #161616;
+    line-height: 1.3;
+    max-width: 80%;
+    text-transform: none;
+  }
+
+  /* Адаптивные стили для белого блока */
+  @media (max-width: 1024px) {
+    .white-block-title {
+      font-size: 28px;
+      max-width: 90%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .description-white-block {
+      padding: 40px 0;
+    }
+    
+    .white-block-title {
+      font-size: 24px;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .description-white-block {
+      padding: 30px 0;
+    }
+    
+    .white-block-title {
+      font-size: 20px;
+    }
+    
+    .white-block-line {
+      width: 30px;
+      height: 3px;
+      top: -15px;
+    }
+  }
+
+  /* Полностью переработанная стилизация блока "НАШИ ПЛОЩАДКИ" */
+  .platforms-block {
+    position: relative;
+    width: 100%;
+    background-color: #161616;
+    padding: 40px 0 120px;
+    z-index: 2;
+    margin-top: 0px;
+  }
+
+  .platforms-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: lowercase;
+    color: #ffffff;
+    margin: 0 0 20px 40px;
+    letter-spacing: 0.5px;
+    position: relative;
+  }
+
+  .platforms-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 120px;
+    height: 3px;
+    background-color: #1CCDAA;
+  }
+
+  .platforms-container {
+    width: 100%;
+    min-height: 280px;
+    background-color: #161616;
+    border-radius: 0;
+    overflow: visible;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1400px;
+    border-top: 1px solid rgba(28,205,170,0.3);
+    border-bottom: 1px solid rgba(28,205,170,0.3);
+    padding-bottom:100px;
+  }
+
+  .platforms-content {
+    position: relative;
+    height: 100%;
+    padding: 0 20px;
+    margin-top: 80px;
+  }
+
+  .platform-content-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(20px);
+  }
+  
+  .platform-content-item.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .platform-info {
+    padding: 30px 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .platform-type {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  
+  .platform-logo {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 90px;
+  }
+
+  .platform-logo svg {
+    width: 90px;
+    height: 100px;
+    margin-left: -5px;
+    object-fit: contain;
+  }
+
+  .platform-logo:hover {
+    /* Удаляем полностью эффект масштабирования при наведении */
+  }
+
+  .platform-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 23px;
+    max-width: 100%;
+    position: relative;
+    padding-left: 15px;
+    border-left: 2px solid #1CCDAA;
+  }
+
+  .platform-tabs {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    z-index: 10;
+  }
+
+  .platform-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: transparent;
+    border: 1px solid rgba(28,205,170,0.5);
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .platform-tab:hover {
+    background-color: rgba(28, 205, 170, 0.1);
+  }
+
+  .platform-tab.active {
+    background-color: rgba(28, 205, 170, 0.2);
+    border-color: #1CCDAA;
+  }
+
+  .platform-tab-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .platform-link {
+    color: #1CCDAA;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    width: fit-content;
+    transition: all 0.3s ease;
+    position: relative;
+    padding-bottom: 4px;
+  }
+
+  .platform-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #1CCDAA;
+    transition: width 0.3s ease;
+  }
+
+  .platform-link:hover {
+    color: #fff;
+  }
+
+  .platform-link:hover::after {
+    width: 100%;
+  }
+
+  .platform-link-arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .platform-link:hover .platform-link-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Медиа-запросы для адаптивности */
+  @media (max-width: 768px) {
+    .platforms-block {
+      padding: 30px 0 100px;
+    }
+    
+    .platform-info {
+      padding: 25px;
+    }
+    
+    .platform-tabs {
+      left: 25px;
+    }
+    
+    .platform-type {
+      font-size: 12px;
+    }
+    
+    .platform-logo {
+      margin-bottom: 25px;
+    }
+    
+    .platform-description {
+      max-width: 100%;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .platforms-block {
+      padding: 20px 0 90px;
+    }
+    
+    .platforms-title {
+      margin-left: 20px;
+      font-size: 13px;
+    }
+    
+    .platform-info {
+      padding: 20px 15px;
+    }
+    
+    .platforms-container {
+      min-height: 240px;
+    }
+    
+    .platform-description {
+      padding-left: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    
+    .platform-tabs {
+      top: 20px;
+      left: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .platform-tab {
+      font-size: 11px;
+      padding: 6px 10px;
+    }
+    
+    .platforms-content {
+      margin-top: 100px;
     }
   }
