@@ -129,6 +129,14 @@
     right: 0;
     width: 100%;
     height: 100%;
+    will-change: auto;
+    transition: none;
+    transform: none !important;
+  }
+  
+  .description-block svg path {
+    will-change: auto;
+    transition: none;
   }
   
   .accent-block svg {
@@ -137,6 +145,14 @@
     left: 0;
     width: 110%;
     height: 100%;
+    will-change: auto;
+    transition: none;
+    transform: none !important;
+  }
+
+  .accent-block svg path {
+    will-change: auto;
+    transition: none;
   }
 
   .accent-block {
@@ -158,12 +174,16 @@
     position: relative;
     z-index: 2;
     font-weight: 600;
-    color: #161616;
+    color: #1CCDAA;
     max-width: 100%;
     font-size: 39px;
     margin-top: 250px;
     margin-left: 20px;
     text-align: left;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
   
   .description-content div {
@@ -275,7 +295,7 @@
       width: 300px;
       height: 300px;
     }
-
+/* треугольник */
     .features-block svg {
       height: 350%;
       top: -110%;
@@ -300,17 +320,17 @@
     }
     
     .features-content {
-      height: 380%;
-      top: -130%;
+      height: 400%;
+      top: -140%;
       width: 170%;
       left: -35%;
     }
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 650px) {
     .features-block svg {
-      height: 420%;
-      top: -150%;
+      height: 450%;
+      top: -170%;
       width: 200%;
       left: -50%;
     }
@@ -371,65 +391,65 @@
     }
 
     .features-block svg {
-      height: 450%;
-      top: -170%;
-      width: 240%;
-      left: -70%;
+      height: 550%;
+      top: -220%;
+      width: 280%;
+      left: -90%;
     }
     
     .features-content {
-      height: 450%;
-      top: -170%;
-      width: 240%;
-      left: -70%;
+      height: 550%;
+      top: -220%;
+      width: 280%;
+      left: -90%;
     }
   }
 
   @media (max-width: 430px) {
     .features-block svg {
-      height: 480%;
-      top: -190%;
-      width: 260%;
-      left: -80%;
+      height: 600%;
+      top: -250%;
+      width: 320%;
+      left: -110%;
     }
     
     .features-content {
-      height: 480%;
-      top: -190%;
-      width: 260%;
-      left: -80%;
+      height: 600%;
+      top: -250%;
+      width: 320%;
+      left: -110%;
     }
   }
 
   @media (max-width: 380px) {
     .features-block svg {
-      height: 500%;
-      top: -210%;
-      width: 280%;
-      left: -90%;
+      height: 650%;
+      top: -280%;
+      width: 350%;
+      left: -125%;
     }
     
     .features-content {
-      height: 500%;
-      top: -210%;
-      width: 280%;
-      left: -90%;
+      height: 650%;
+      top: -280%;
+      width: 350%;
+      left: -125%;
     }
   }
 
   @media (max-width: 360px) {
     .features-block svg {
-      height: 520%;
-      top: -230%;
-      width: 300%;
-      left: -100%;
+      height: 700%;
+      top: -310%;
+      width: 380%;
+      left: -140%;
     }
     
     .features-content {
-      height: 520%;
-      top: -230%;
-      width: 300%;
-      left: -100%;
+      height: 700%;
+      top: -310%;
+      width: 380%;
+      left: -140%;
     }
   }
 
@@ -1297,6 +1317,14 @@
     left: 0;
     width: 100%;
     height: 280%;
+    will-change: auto;
+    transition: none;
+    transform: none !important;
+  }
+
+  .features-block svg path {
+    will-change: auto;
+    transition: none;
   }
 
   .features-content {
@@ -1686,35 +1714,35 @@
   @media (max-width: 576px) {
     .features-block-container {
       padding: 20px 0 50px;
-      height: 420px;
+      height: 35vh;
     }
   }
   
   @media (max-width: 480px) {
     .features-block-container {
       padding: 20px 0 40px;
-      height: 380px;
+      height: 42vh;
     }
   }
 
   @media (max-width: 430px) {
     .features-block-container {
       padding: 15px 0 30px;
-      height: 340px;
+      height: 38vh;
     }
   }
 
   @media (max-width: 380px) {
     .features-block-container {
       padding: 15px 0 20px;
-      height: 320px;
+      height: 40vh;
     }
   }
 
   @media (max-width: 360px) {
     .features-block-container {
       padding: 10px 0 20px;
-      height: 300px;
+      height: 40vh;
     }
   }
 
@@ -2066,5 +2094,263 @@
   @media (max-width: 519px) {
     .features-content {
       gap: 5px;
+    }
+  }
+
+  /* Добавляем стили для нового текстового блока под lower-line */
+  .trending-services {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px 0;
+    background-color: #161616;
+    text-align: left;
+    z-index: 3;
+  }
+
+  .trending-services h2 {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 900;
+    margin: 0;
+    padding: 0 0 0 95px;
+    text-transform: lowercase;
+    letter-spacing: 0.2px;
+  }
+
+  .trending-services span {
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+
+  @media (max-width: 1366px) {
+    .trending-services h2 {
+      font-size: 16px;
+      padding-left: 63px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .trending-services h2 {
+      font-size: 16px;
+      padding-left: 33px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .trending-services h2 {
+      font-size: 15px;
+      padding-left: 26px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .trending-services h2 {
+      font-size: 14px;
+      padding-left: 18px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .trending-services h2 {
+      font-size: 13px;
+      padding-left: 10px;
+    }
+  }
+
+  /* Обновляем стили для текста в description-block */
+  .description-text {
+    font-size: 28px;
+    font-weight: 900;
+    color: #000000;
+    line-height: 1.3;
+    letter-spacing: 0.3px;
+    max-width: 85%;
+    position: relative;
+    top: 0;
+    transition: all 0.3s ease;
+  }
+
+  /* Стили для отдельных символов */
+  .description-text .char {
+    display: inline-block;
+    will-change: transform;
+    transform-origin: center center;
+    color: #000000;
+    transition: color 0.3s ease;
+  }
+
+  /* Декоративный элемент перед текстом */
+  .description-text::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background-color: #000000;
+    left: 0;
+    top: -15px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: lineExpand 1.2s ease forwards;
+    animation-delay: 1s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Анимация для декоративной линии */
+  @keyframes lineExpand {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+
+  /* Адаптивные настройки сохранены */
+  @media (min-width: 1881px) and (max-width: 1980px) {
+    .description-text {
+      font-size: 32px;
+      max-width: 85%;
+      top: -30px;
+    }
+    
+    .description-content {
+      margin-top: 280px;
+    }
+  }
+
+  @media (min-width: 1681px) and (max-width: 1880px) {
+    .description-text {
+      font-size: 30px;
+      max-width: 85%;
+      top: -20px;
+    }
+    
+    .description-content {
+      margin-top: 270px;
+    }
+  }
+
+  @media (min-width: 1481px) and (max-width: 1680px) {
+    .description-text {
+      font-size: 28px;
+      max-width: 85%;
+      top: -10px;
+    }
+    
+    .description-content {
+      margin-top: 260px;
+    }
+  }
+
+  @media (min-width: 1281px) and (max-width: 1480px) {
+    .description-text {
+      font-size: 26px;
+      max-width: 85%;
+      top: 0;
+    }
+    
+    .description-content {
+      margin-top: 250px;
+    }
+  }
+
+  @media (min-width: 1081px) and (max-width: 1280px) {
+    .description-text {
+      font-size: 24px;
+      max-width: 85%;
+      top: 10px;
+    }
+    
+    .description-content {
+      margin-top: 230px;
+    }
+  }
+
+  @media (min-width: 981px) and (max-width: 1080px) {
+    .description-text {
+      font-size: 22px;
+      max-width: 90%;
+      top: 20px;
+    }
+    
+    .description-content {
+      margin-top: 210px;
+    }
+  }
+
+  @media (min-width: 881px) and (max-width: 980px) {
+    .description-text {
+      font-size: 20px;
+      max-width: 90%;
+      top: 50px;
+    }
+    
+    .description-content {
+      margin-top: 190px;
+    }
+  }
+
+  @media (min-width: 781px) and (max-width: 880px) {
+    .description-text {
+      font-size: 19px;
+      max-width: 90%;
+      top: 60px;
+    }
+    
+    .description-content {
+      margin-top: 170px;
+    }
+  }
+
+  @media (min-width: 681px) and (max-width: 780px) {
+    .description-text {
+      font-size: 18px;
+      max-width: 90%;
+      top: 90px;
+    }
+    
+    .description-content {
+      margin-top: 140px;
+    }
+  }
+
+  @media (min-width: 581px) and (max-width: 680px) {
+    .description-text {
+      font-size: 17px;
+      max-width: 90%;
+      top: 120px;
+    }
+    
+    .description-content {
+      margin-top: 120px;
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 580px) {
+    .description-text {
+      font-size: 16px;
+      max-width: 90%;
+      top: 160px;
+    }
+    
+    .description-content {
+      margin-top: 80px;
+    }
+  }
+
+  @media (min-width: 360px) and (max-width: 480px) {
+    .description-text {
+      font-size: 15px;
+      max-width: 90%;
+      letter-spacing: 0.2px;
+      top: 200px;
+    }
+    
+    .description-content {
+      margin-top: 40px;
     }
   }

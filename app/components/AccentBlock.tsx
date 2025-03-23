@@ -13,24 +13,13 @@ const AccentBlock = forwardRef<HTMLDivElement>((props, ref) => {
     if (!block.current) return;
     
     gsap.set([svg, path], { 
-      opacity: 0 
+      opacity: 1,
+      scale: 1,
+      transformOrigin: 'center center'
     });
     
-    const tl = gsap.timeline({
-      delay: 0.4
-    });
+    gsap.killTweensOf([svg, path]);
     
-    tl.to(svg, {
-      opacity: 1,
-      duration: 0.8,
-      ease: "power2.inOut"
-    })
-    .to(path, {
-      opacity: 1,
-      duration: 0.8,
-      ease: "power2.inOut"
-    }, "-=0.6");
-
   }, [ref]);
 
   return (

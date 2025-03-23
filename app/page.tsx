@@ -203,6 +203,10 @@ export default function Home() {
           <div className="lower-line"></div>
         </div>
         
+        <div className="trending-services">
+          <h2>услуги и товары пользующиеся спросом и (уникальные товары и услуги)</h2>
+        </div>
+        
         <div className="features-block-container">
           <div className="features-block" ref={featuresBlockRef}>
             <svg width="100%" height="100%" viewBox="0 0 1666 709" fill="none" xmlns="http://www.w3.org/2000/svg">
