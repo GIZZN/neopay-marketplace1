@@ -267,6 +267,7 @@ export default function Home() {
         
         <div className="platforms-block">
           <h2 className="platforms-title">наши площадки</h2>
+        <div className="platforms-title-line"></div>
           <div className="platforms-container">
             <div className="platform-tabs">
               <button className="platform-tab active" data-platform="platform-work">

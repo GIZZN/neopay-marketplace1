@@ -1,7 +1,7 @@
 .footer {
-    background: rgba(15, 23, 42, 0.98);
+    background: #161616;
     backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid #161616;
     padding: 4rem 0 2rem;
   }
   
@@ -66,8 +66,8 @@
   }
   
   .social-link:hover {
-    background: rgba(139, 92, 246, 0.1);
-    color: #8B5CF6;
+    background: #1CCDAA;
+    color: #000000;
     transform: translateY(-2px);
   }
   

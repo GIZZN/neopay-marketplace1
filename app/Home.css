@@ -1074,7 +1074,6 @@
     }
   }
 
-  /* Базовые стили для svg в круге */
   .watermark-circle svg {
     position: absolute;
     top: 0;
@@ -1272,7 +1271,6 @@
     }
   }
 
-  /* Обновляем стили для блока с фичами и добавляем карточки */
   .features-block-container {
     position: relative;
     width: 100%;
@@ -2025,7 +2023,6 @@
     }
   }
 
-  /* Специальные настройки для очень маленьких экранов */
   @media (max-width: 380px) {
     .feature-card {
       width: 70px;
@@ -2043,7 +2040,6 @@
     }
   }
 
-  /* Специальная настройка расстояний между карточками в зависимости от размера экрана */
   @media (min-width: 1520px) {
     .features-content {
       gap: 25px;
@@ -2074,7 +2070,6 @@
     }
   }
 
-  /* Добавляем стили для нового текстового блока под lower-line */
   .trending-services {
     position: relative;
     width: 100%;
@@ -2138,7 +2133,6 @@
     }
   }
 
-  /* Обновляем стили для текста в description-block */
   .description-text {
     font-size: 28px;
     font-weight: 900;
@@ -2150,7 +2144,7 @@
   }
   
 
-  /* Добавляем декоративный элемент перед текстом */
+
   .description-text::before {
     content: "";
     position: absolute;
@@ -2165,7 +2159,6 @@
     animation-delay: 1s;
   }
 
-  /* Анимация для декоративной линии */
   @keyframes lineExpand {
     0% {
       transform: scaleX(0);
@@ -2175,7 +2168,6 @@
     }
   }
 
-  /* Адаптивные настройки для текста в description-block */
   @media (min-width: 1881px) and (max-width: 1980px) {
     .description-text {
       font-size: 70px;
@@ -2320,7 +2312,7 @@
       margin-top: 40px;
     }
   }
-   /* Стили для нового белого блока */
+
    .description-white-block {
     position: relative;
     width: 100%;
@@ -2354,7 +2346,6 @@
     text-transform: none;
   }
 
-  /* Адаптивные стили для белого блока */
   @media (max-width: 1024px) {
     .white-block-title {
       font-size: 28px;
@@ -2389,34 +2380,45 @@
     }
   }
 
-  /* Полностью переработанная стилизация блока "НАШИ ПЛОЩАДКИ" */
   .platforms-block {
     position: relative;
     width: 100%;
-    background-color: #161616;
+    background-color: #fffcfc;
     padding: 40px 0 120px;
     z-index: 2;
     margin-top: 0px;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .platforms-title {
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 900;
     text-transform: lowercase;
-    color: #ffffff;
-    margin: 0 0 20px 40px;
+    color: #161616;
     letter-spacing: 0.5px;
     position: relative;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .platforms-title::after {
     content: '';
-    position: absolute;
-    bottom: -8px;
+    position: relative;
+    margin-top: 6px;
+    margin-bottom: 6px;
     left: 0;
-    width: 120px;
-    height: 3px;
-    background-color: #1CCDAA;
+    width: 90%;
+    height: 4px;
+    border-radius: 30px;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .platforms-container {
@@ -2426,11 +2428,12 @@
     border-radius: 0;
     overflow: visible;
     position: relative;
-    margin: 0 auto;
     max-width: 1400px;
-    border-top: 1px solid rgba(28,205,170,0.3);
-    border-bottom: 1px solid rgba(28,205,170,0.3);
-    padding-bottom:100px;
+    border: 3px solid rgb(28, 205, 170);
+    padding-bottom: 100px;
+    border-radius: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
   }
 
   .platforms-content {
@@ -2490,9 +2493,6 @@
     object-fit: contain;
   }
 
-  .platform-logo:hover {
-    /* Удаляем полностью эффект масштабирования при наведении */
-  }
 
   .platform-description {
     font-size: 16px;
@@ -2526,15 +2526,18 @@
     font-size: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
+    border-radius: 300px;
   }
 
   .platform-tab:hover {
     background-color: rgba(28, 205, 170, 0.1);
+    
   }
 
   .platform-tab.active {
     background-color: rgba(28, 205, 170, 0.2);
     border-color: #1CCDAA;
+    border-radius: 300px;
   }
 
   .platform-tab-icon {
@@ -2586,7 +2589,6 @@
     transform: translateX(4px);
   }
 
-  /* Медиа-запросы для адаптивности */
   @media (max-width: 768px) {
     .platforms-block {
       padding: 30px 0 100px;
@@ -2631,6 +2633,8 @@
     
     .platforms-container {
       min-height: 240px;
+      margin-left: 30px;
+      margin-right: 30px;
     }
     
     .platform-description {
