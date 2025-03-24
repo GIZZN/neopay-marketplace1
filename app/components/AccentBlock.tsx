@@ -12,9 +12,6 @@ const AccentBlock = forwardRef<HTMLDivElement>((props, ref) => {
     
     if (!block.current) return;
     
-    gsap.set([svg, path], { 
-      opacity: 0 
-    });
     
     const tl = gsap.timeline({
       delay: 0.4

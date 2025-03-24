@@ -15,11 +15,7 @@ const DescriptionBlock = forwardRef<HTMLDivElement>((props, ref) => {
     const text = textRef.current;
     
     if (!block.current) return;
-    
-    gsap.set([svg, path, content, text], { 
-      opacity: 0 
-    });
-    
+
     const tl = gsap.timeline({
       delay: 0.2
     });
@@ -49,7 +45,6 @@ const DescriptionBlock = forwardRef<HTMLDivElement>((props, ref) => {
 
   }, [ref]);
 
-  // Разделяем текст на массив слов для поэтапной анимации
   const textContent = "суть сервиса и для кого он с кратким описанием услуг предоставляемых сервисом";
 
   return (
