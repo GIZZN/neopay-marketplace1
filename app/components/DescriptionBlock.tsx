@@ -45,6 +45,7 @@ const DescriptionBlock = forwardRef<HTMLDivElement>((props, ref) => {
 
   }, [ref]);
 
+  // Разделяем текст на массив слов для поэтапной анимации
   const textContent = "суть сервиса и для кого он с кратким описанием услуг предоставляемых сервисом";
 
   return (

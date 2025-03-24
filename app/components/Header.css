@@ -45,6 +45,7 @@
   border-radius: 10px;
   width: 96%;
   transition: width 0.3s ease;
+  animation: lineExpand 1.2s ease forwards;
 }
 
 /* Стили для поисковой формы */

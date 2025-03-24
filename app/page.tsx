@@ -101,7 +101,9 @@ export default function Home() {
         </section>
 
         <section className="bottom-section">
+          <div className="top-line-container">
           <div className="top-line"></div>
+          </div>
           <div className="content-wrapper" ref={contentWrapperRef}>
             <DescriptionBlock ref={descriptionBlockRef} />
             <AccentBlock ref={accentBlockRef} />
