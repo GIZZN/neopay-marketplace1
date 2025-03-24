@@ -1336,22 +1336,22 @@ header {
 .feature-card {
   width: 220px;
   height: 320px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #161616;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
   padding: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px #161616;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(28, 205, 170, 0.3);
+  border: 1px solid #1CCDAA;
 }
 
 .feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-  border-color: rgba(28, 205, 170, 0.8);
+  box-shadow: 0 8px 16px #161616;
+  border-color: #1CCDAA;
 }
 
 .feature-card .product-image {
@@ -1396,7 +1396,7 @@ header {
   background: transparent;
   border: 1px solid #1CCDAA;
   border-radius: 300px;
-  color: #ebebeb;
+  color: #1CCDAA;
   font-weight: 500;
   font-size: 14px;
   cursor: pointer;
@@ -1407,8 +1407,8 @@ header {
 }
 
 .feature-card .card-button:hover {
-  background: #1CCDAA;
-  color: rgb(0, 0, 0);
+  background: #000000;
+  color: #ffffff;
   font-weight: 900;
 }
 
@@ -2140,8 +2140,7 @@ header {
 }
 
 .platform-tab:hover {
-  background-color: #200857;
-  
+  background-color: #1b1b1b;
 }
 
 .platform-tab.active {

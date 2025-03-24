@@ -147,7 +147,7 @@ export default function Home() {
                 <div className="product-image">
                 </div>
                 <h3 className="card-title">Название товара</h3>
-                <div className="product-seller">Продавец: NeoMarket</div>
+                <div className="product-seller">Продавец:</div>
                 <div className="product-price">3500 ₽</div>
                 <button className="card-button">Перейти к товару</button>
               </div>

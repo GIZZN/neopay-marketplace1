@@ -1,5 +1,5 @@
 {
-  "name": "cal2",
+  "name": "neopay-marketplace",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "": "file:",
     "@vercel/og": "^0.6.5",
     "cal2": "file:",
     "gsap": "^3.12.7",
