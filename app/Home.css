@@ -2137,10 +2137,12 @@ header {
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 300px;
+  font-weight: 900;
 }
 
 .platform-tab:hover {
   background-color: #1b1b1b;
+  color: #1CCDAA;
 }
 
 .platform-tab.active {

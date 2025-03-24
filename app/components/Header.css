@@ -5,16 +5,16 @@
   width: 100%;
   z-index: 1000;
   transition: all 0.3s ease;
-  background: #161616;
+  background: #1b1b1b;
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
   padding-bottom: 12px;
-  background-color: rgba(19, 19, 19, 1);
+  background-color: rgba(22, 22, 22, 1);
   padding-bottom: 27px;
 }
 
 .header-scrolled {
-  background: rgba(19, 19, 19, 1);
+  background: rgba(22, 22, 22, 1);
 }
 
 .container {
